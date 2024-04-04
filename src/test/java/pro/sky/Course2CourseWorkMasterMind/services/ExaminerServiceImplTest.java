@@ -15,8 +15,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -61,6 +60,7 @@ class ExaminerServiceImplTest {
         Collection<Question> result = out.getQuestions(1);
 
         //Начало теста
+        assertTrue(result.contains(javaQuestionSet.iterator().next()));
         verify(javaQuestionService).getRandomQuestion();
     }
 }
