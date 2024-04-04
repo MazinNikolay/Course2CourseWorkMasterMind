@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pro.sky.Course2CourseWorkMasterMind.exceptions.IncorrectArgumentException;
 import pro.sky.Course2CourseWorkMasterMind.model.Question;
-import pro.sky.Course2CourseWorkMasterMind.services.Interfaces.QuestionService;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,7 +26,6 @@ class ExaminerServiceImplTest {
     @InjectMocks
     private ExaminerServiceImpl out;
 
-    private Set<Question> mathQuestionSet;
     private Set<Question> javaQuestionSet;
 
     @BeforeEach
@@ -43,17 +41,11 @@ class ExaminerServiceImplTest {
 
     @Test
     void getQuestionsWithIncorrectAmount() {
-        //Подготовка входных данных
-
-        //Подготовко ожидаемого результата
-
         //Начало теста
         assertThrows(IncorrectArgumentException.class, () -> out.getQuestions(15));
     }
     @Test
     void getQuestions() {
-        //Подготовка входных данных
-
         //Подготовко ожидаемого результата
         when(javaQuestionService.getAll()).thenReturn(javaQuestionSet);
         when(javaQuestionService.getRandomQuestion()).thenReturn(javaQuestionSet.iterator().next());
